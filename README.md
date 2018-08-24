@@ -84,9 +84,9 @@ async function doSomethingAsync(){
 
 ```
 
-###Namespace
+### Namespace
 
-####`create(name:string|Symbol):Context`
+#### `create(name:string|Symbol):Context`
 Create new context by given name
 ```javascript
 import {namespace} from "appolo-context";
@@ -95,7 +95,7 @@ let context = namespace.create("someName");
 context.initialize();
 ```
 
-####`get(name:string|Symbol):Context`
+#### `get(name:string|Symbol):Context`
 get context by given name
 ```javascript
 import {namespace} from "appolo-context";
@@ -104,7 +104,7 @@ let context = namespace.get("someName");
 context.get("someValue")
 ```
 
-####`delete(name:string|Symbol)`
+#### `delete(name:string|Symbol)`
 delete context by given name and destroy it
 ```javascript
 import {namespace} from "appolo-context";
@@ -112,7 +112,7 @@ import {namespace} from "appolo-context";
 let context = namespace.delete("someName");
 ```
 
-####`get context():Context`
+#### `get context():Context`
 get the default context
 ```javascript
 import {namespace} from "appolo-context";
@@ -122,13 +122,13 @@ let context = namespace.context;
 context.initialize()
 ```
 
-###Context
-####`initialize()`
+### Context
+#### `initialize()`
 initialize the async hooks must be called before any get or set methods
 this will create the async hooks and enable them.
 
-###Context
-####`scope(fn:Function)`
+### Context
+#### `scope(fn:Function)`
 create new context scope and triggers the given function
 ```javascript
 import {context} from "appolo-context";
