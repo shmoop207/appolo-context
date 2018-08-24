@@ -53,7 +53,7 @@ context.scope(async()=>{
 
 ```
 
-### Express Usage
+## Express Usage
 ```javascript
 import {context} from "appolo-context";
 import * as express from "express";
@@ -73,7 +73,7 @@ app.use(async (req,res,next())=>{
     res.send(reuslt)
 })
 ```
-Now you can retrieve the context in any file of function.
+Now you can retrieve the context in any file or function.
 ```javascript
 import {context} from "appolo-context";
 
