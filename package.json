@@ -1,6 +1,6 @@
 {
   "name": "appolo-context",
-  "description": "",
+  "description": "async hooks context storage",
   "keywords": [
     "context",
     "async",
@@ -19,7 +19,7 @@
     "test": "mocha test"
   },
   "main": "./index.js",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",

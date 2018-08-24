@@ -7,7 +7,7 @@
 nodejs async hooks context storage
 can be used to create context per request
 
-> Attention! This package is using the new [async hooks](https://nodejs.org/api/async_hooks.html) API, which is available from Node 8.9.0, but still experimental. It is strongly recommended NOT to use in production environments.
+> Attention! This package is using the new experimental [async hooks](https://nodejs.org/api/async_hooks.html) API.
 
 
 ## Installation:
