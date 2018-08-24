@@ -5,4 +5,6 @@ exports.Context = context_1.Context;
 const namespace_1 = require("./lib/namespace");
 let namespace = new namespace_1.Namespace();
 exports.namespace = namespace;
+let context = namespace.context;
+exports.context = context;
 //# sourceMappingURL=index.js.map

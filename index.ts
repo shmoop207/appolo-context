@@ -4,4 +4,6 @@ import {Namespace} from "./lib/namespace";
 
 let namespace = new Namespace();
 
-export {namespace, Context}
+let context = namespace.context;
+
+export {namespace, Context, context}

@@ -1,7 +1,7 @@
 "use strict";
 import chai = require('chai');
 import Q = require('bluebird');
-import {Context, namespace} from "../index";
+import {Context, namespace,context} from "../index";
 
 let should = chai.should();
 
@@ -61,12 +61,59 @@ describe("context", function () {
 
         result.should.be.eq("Test2Test");
 
+        context.destroy();
+
+    });
+
+    it('should call get context using default', async () => {
+
+
+        context.initialize();
+
+        class Test {
+
+
+            async handle() {
+
+                return context.scope(async () => {
+                    context.set("test", "Test");
+
+                    await Q.delay(1);
+
+                    let test2 = new Test2();
+
+                    let result = await test2.handle();
+
+                    return result;
+                });
+            }
+        }
+
+        class Test2 {
+
+
+            async handle() {
+
+                await Q.delay(1);
+
+                return "Test2" + context.get("test")
+            }
+        }
+
+        let test = new Test();
+
+
+        let result = await test.handle();
+
+
+        result.should.be.eq("Test2Test");
+
     });
 
 
     it('should call get context parallel', async () => {
 
-        let context = namespace.create("test");
+        let context = namespace.create("test2");
 
         context.initialize();
 
@@ -97,7 +144,7 @@ describe("context", function () {
 
                 await Q.delay(1);
 
-                let context = namespace.get("test");
+                let context = namespace.get("test2");
 
                 return "Test2" + context.get("test")
             }

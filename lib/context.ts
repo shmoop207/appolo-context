@@ -8,10 +8,18 @@ export class Context {
     private _context: Map<number, Map<any, any>> = new Map();
 
     private _isEnabled = false;
+    private _isInitialize = false;
 
     public initialize() {
+
+        if (this._isInitialize) {
+            return;
+        }
+
         this._hook = createHook({init: this._init.bind(this), destroy: this._destroy.bind(this)});
         this.enable();
+
+        this._isInitialize = true;
 
     }
 
@@ -26,7 +34,7 @@ export class Context {
         this._context.delete(asyncId);
     }
 
-    public scope(fn: Function) {
+    public scope(fn: Function): any {
         const id = executionAsyncId();
         this._context.set(id, new Map());
 
@@ -68,5 +76,12 @@ export class Context {
     public disable() {
         this._isEnabled = false;
         this._hook.disable();
+    }
+
+    public destroy() {
+        this.disable();
+        this._context.clear();
+        this._context = null;
+        this._hook = null;
     }
 }

@@ -12,14 +12,14 @@
     "email": "shmoop207@gmail.com"
   },
   "engines": {
-    "node": ">= 8.4.x",
-    "npm": ">= 5.3.x"
+    "node": ">= 10.x.x",
+    "npm": ">= 6.x.x"
   },
   "scripts": {
     "test": "mocha test"
   },
   "main": "./index.js",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "license": "MIT",
   "repository": {
     "type": "git",
