@@ -1,8 +1,7 @@
 # Appolo Context
-[![Build Status](https://travis-ci.org/shmoop207/appolo-context.svg?branch=master)](https://travis-ci.org/shmoop207/appolo-context)
-[![npm](http://img.shields.io/npm/v/appolo-context.svg?style=flat-square)](https://www.npmjs.org/package/appolo-context)
-[![Github Releases](https://img.shields.io/npm/dm/appolo-context.svg?style=flat-square)](https://github.com/shmoop207/appolo-context)
+[![Build Status](https://travis-ci.org/shmoop207/appolo-context.svg?branch=master)](https://travis-ci.org/shmoop207/appolo-context) [![Dependencies status](https://david-dm.org/shmoop207/appolo-context.svg)](https://david-dm.org/shmoop207/appolo-context) [![NPM version](https://badge.fury.io/js/appolo-context.svg)](https://badge.fury.io/js/appolo-context)  [![npm Downloads](https://img.shields.io/npm/dm/appolo-context.svg?style=flat)](https://www.npmjs.com/package/appolo-context)
 [![Known Vulnerabilities](https://snyk.io/test/github/shmoop207/appolo-context/badge.svg)](https://snyk.io/test/github/shmoop207/appolo-context)
+
 
 nodejs async hooks context storage
 can be used to create context per request
