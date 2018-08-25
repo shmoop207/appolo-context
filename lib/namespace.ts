@@ -20,7 +20,7 @@ export class Namespace {
     public create(name: string | Symbol, ContextFn?: typeof Context): Context {
 
         if (this._contexts.has(name)) {
-            throw new Error(`namespace ${name} already exists`)
+            throw new Error(`namespace ${name.toString()} already exists`)
         }
 
         let context = ContextFn ? new ContextFn() : new Context();
