@@ -11,7 +11,7 @@ describe("context", function () {
                 return this.get("test");
             }
         }
-        let context = index_1.namespace.create("test", new CustomContext());
+        let context = index_1.namespace.create("test", () => new CustomContext());
         context.initialize();
         class Test {
             async handle() {

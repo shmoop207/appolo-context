@@ -17,7 +17,7 @@ describe("context", function () {
             }
         }
 
-        let context = namespace.create("test",new  CustomContext());
+        let context = namespace.create("test",()=>new CustomContext());
         context.initialize();
 
 

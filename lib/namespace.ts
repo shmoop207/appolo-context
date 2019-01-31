@@ -2,6 +2,8 @@ import {Context} from "./context";
 
 const defaultSymbol = Symbol("default");
 
+type ContextCreateFn = () => Context
+
 export class Namespace {
 
     private _contexts: Map<string | Symbol, Context> = new Map();
@@ -17,7 +19,7 @@ export class Namespace {
         return context;
     }
 
-    public create(name: string | Symbol, contextFn?: typeof Context | Context): Context {
+    public create(name: string | Symbol, contextFn?: typeof Context | ContextCreateFn): Context {
 
         if (this._contexts.has(name)) {
             throw new Error(`namespace ${name.toString()} already exists`)
@@ -27,7 +29,7 @@ export class Namespace {
 
         if (contextFn) {
 
-            context = contextFn instanceof Context ? contextFn : new contextFn();
+            context = Context.isPrototypeOf(contextFn) ? new (contextFn as typeof Context)() : (contextFn  as ContextCreateFn)()
 
         } else {
             context = new Context();
