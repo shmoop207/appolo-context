@@ -63,27 +63,29 @@ describe("context", function () {
         let context = index_1.namespace.create("test2");
         context.initialize();
         class Test {
-            async handle(id) {
+            async handle(id, num) {
                 return context.scope(async () => {
                     context.set("test", id);
-                    await Q.delay(1);
+                    await Q.delay(num);
                     let test2 = new Test2();
-                    let result = await test2.handle();
+                    let result = await test2.handle(num);
                     return result;
                 });
             }
         }
         class Test2 {
-            async handle() {
-                await Q.delay(1);
+            async handle(num) {
+                await Q.delay(num);
                 let context = index_1.namespace.get("test2");
+                await Q.delay(num);
                 return "Test2" + context.get("test");
             }
         }
         let test = new Test();
-        let [result, result2] = await Q.all([test.handle("1"), test.handle("2")]);
+        let [result, result2, result3] = await Q.all([test.handle("1", 3), test.handle("2", 1), test.handle("3", 2)]);
         result.should.be.eq("Test21");
         result2.should.be.eq("Test22");
+        result3.should.be.eq("Test23");
     });
 });
 //# sourceMappingURL=unit.js.map

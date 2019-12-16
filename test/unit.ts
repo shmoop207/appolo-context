@@ -121,16 +121,16 @@ describe("context", function () {
         class Test {
 
 
-            async handle(id: string) {
+            async handle(id: string,num:number) {
 
                 return context.scope(async () => {
                     context.set("test", id);
 
-                    await Q.delay(1);
+                    await Q.delay(num);
 
                     let test2 = new Test2();
 
-                    let result = await test2.handle();
+                    let result = await test2.handle(num);
 
                     return result;
                 });
@@ -140,11 +140,13 @@ describe("context", function () {
         class Test2 {
 
 
-            async handle() {
+            async handle(num:number) {
 
-                await Q.delay(1);
+                await Q.delay(num);
 
                 let context = namespace.get("test2");
+
+                await Q.delay(num);
 
                 return "Test2" + context.get("test")
             }
@@ -153,11 +155,12 @@ describe("context", function () {
         let test = new Test();
 
 
-        let [result, result2] = await Q.all([test.handle("1"), test.handle("2")]);
+        let [result, result2,result3] = await Q.all([test.handle("1",3), test.handle("2",1),test.handle("3",2)]);
 
 
         result.should.be.eq("Test21");
         result2.should.be.eq("Test22");
+        result3.should.be.eq("Test23");
 
 
     });
