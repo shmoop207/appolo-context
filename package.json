@@ -12,14 +12,14 @@
     "email": "shmoop207@gmail.com"
   },
   "engines": {
-    "node": ">= 10.x.x",
+    "node": ">= 12.x.x",
     "npm": ">= 6.x.x"
   },
   "scripts": {
     "test": "mocha test"
   },
   "main": "./index.js",
-  "version": "6.0.9",
+  "version": "8.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,15 +29,15 @@
   "readmeFilename": "README.md",
   "dependencies": {},
   "devDependencies": {
-    "@types/lodash": "^4.14.116",
+    "@types/lodash": "^4.14.165",
     "@types/bluebird": "^3.5.23",
-    "@types/chai": "^4.1.2",
-    "@types/mocha": "^5.0.0",
-    "@types/node": "^10.7.1",
-    "bluebird": "^3.5.1",
-    "chai": "^4.1.2",
-    "mocha": "^5.0.5",
-    "typescript": "^2.8.1",
-    "tslib": "^1.9.3"
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.14",
+    "bluebird": "^3.7.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "tslib": "^2.0.3"
   }
 }
